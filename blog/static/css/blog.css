@@ -49,3 +49,14 @@ h1, h2, h3, h4 {
     margin-top: 20px;
 }
 
+#editbase {
+    margin-top: 20px;
+}
+
+#draftsheader {
+    margin-bottom: 50px;
+    color: #313c4f;
+    font-size: 34pt;
+    border-bottom: 3px solid #AAAAAA ;
+}
+
