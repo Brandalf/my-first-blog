@@ -15,8 +15,21 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.contrib.auth import views
+from django.views.generic.edit import CreateView
+from django.contrib.auth.forms import UserCreationForm
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('blog.urls')),
+    url(r'^accounts/login/$', views.login, name='login'),
+    #http://www.obeythetestinggoat.com/using-the-built-in-views-and-forms-for-new-user-registration-in-django.html
+    url('^register/', CreateView.as_view(
+        template_name='register.html',
+        form_class=UserCreationForm,
+        success_url='/',
+    ), name='register'),
+    url('^accounts/', include('django.contrib.auth.urls')),
+    url(r'^accounts/logout/$', views.logout, name='logout', kwargs={'next_page': ''}),
+
 ]

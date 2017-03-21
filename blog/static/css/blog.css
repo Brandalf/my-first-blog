@@ -60,3 +60,14 @@ h1, h2, h3, h4 {
     border-bottom: 3px solid #AAAAAA ;
 }
 
+.glyphicon-log-in {
+    margin-top: 20px;
+}
+
+.greeting {
+    color: #ffffff;
+    float: right;
+    font-size: 14pt;
+    margin-right: 20px;
+    margin-top: 23px;
+}
