@@ -11,7 +11,7 @@
     <body>
         <div class="page-header">
             {% if user.is_authenticated %}
-                <p class="greeting">Hello, {{user.username}} <small>(<a href="{% url 'logout' %}">Log Out</a>)</small></p>
+                <p class="greeting">Hello, {{user.username}} <small>(<a href="{% url 'logout' %}?next=/">Log Out</a>)</small></p>
                 {% if user.is_staff %}
                     <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit" id="editbase"></span></a>
                     <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>

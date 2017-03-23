@@ -30,6 +30,6 @@ urlpatterns = [
         success_url='/',
     ), name='register'),
     url('^accounts/', include('django.contrib.auth.urls')),
-    url(r'^accounts/logout/$', views.logout, name='logout', kwargs={'next_page': ''}),
+    url(r'^accounts/logout/$', views.logout, name='logout', kwargs={'next_page': '/successfully_logged_out'}),
 
 ]
