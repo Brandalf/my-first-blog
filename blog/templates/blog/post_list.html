@@ -8,6 +8,12 @@
             </div>
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text|linebreaksbr }}</p>
+            {% if user.is_staff %}
+                <a href="{% url 'post_detail' pk=post.pk %}">Total Comments: {{post.comments.count}}</a>
+                <p>Approved Comments: {{post.approved_comments.count}}</p>
+            {% else %}
+                <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{post.approved_comments.count}}</a>
+            {%endif %}
         </div>
     {% endfor %}
 {% endblock %}

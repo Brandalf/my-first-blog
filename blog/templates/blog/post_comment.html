@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h1>New comment</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Send</button>
+        {% if user.is_staff != True %}
+            <p>Note: Comments need to be approved before they will appear.</p>
+        {%endif%}
+    </form>
+{% endblock %}
