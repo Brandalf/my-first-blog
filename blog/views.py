@@ -70,10 +70,11 @@ def post_comment(request, pk):
         if form.is_valid():
             comment = form.save(commit=False)
             comment.author = request.user
-            #if comment.author.is_staff == True:
-            #    comment.approve()
             comment.post = post
             comment.save()
+            if comment.author.is_staff == True:
+                comment.approve()
+
             return redirect('post_detail', pk=post.pk)
     else:
         form = CommentForm()
